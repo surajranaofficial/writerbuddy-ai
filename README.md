@@ -95,7 +95,7 @@ Select any text and instantly apply AI actions:
 
 1. **Download** the extension:
 ```bash
-git clone https://github.com/yourusername/writerbuddy-ai.git
+git clone https://github.com/surajranaofficial/writerbuddy-ai.git
 ```
 
 2. **Load Extension**:
@@ -115,7 +115,7 @@ git clone https://github.com/yourusername/writerbuddy-ai.git
 
 1. **Clone Repository**:
 ```bash
-git clone https://github.com/yourusername/writerbuddy-ai.git
+git clone https://github.com/surajranaofficial/writerbuddy-ai.git
 cd writerbuddy-ai
 ```
 
@@ -411,7 +411,7 @@ We welcome contributions from the community! 🎉
 
 ### Ways to Contribute
 
-- 🐛 **Bug Reports**: Found an issue? [Open an issue](https://github.com/yourusername/writerbuddy-ai/issues)
+- 🐛 **Bug Reports**: Found an issue? [Open an issue](https://github.com/surajranaofficial/writerbuddy-ai/issues)
 - 💡 **Feature Requests**: Have an idea? Share it!
 - 🔧 **Code Contributions**: Submit a Pull Request
 - 📖 **Documentation**: Improve docs and guides
@@ -422,7 +422,7 @@ We welcome contributions from the community! 🎉
 
 1. **Fork the Repository**:
 ```bash
-git clone https://github.com/yourusername/writerbuddy-ai.git
+git clone https://github.com/surajranaofficial/writerbuddy-ai.git
 cd writerbuddy-ai
 ```
 
@@ -488,13 +488,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### Get Help
 
 - 📖 **Documentation**: [QUICKSTART.md](QUICKSTART.md)
-- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/yourusername/writerbuddy-ai/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/yourusername/writerbuddy-ai/discussions)
+- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/surajranaofficial/writerbuddy-ai/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/surajranaofficial/writerbuddy-ai/discussions)
 - 📧 **Email**: your.email@example.com
 
 ### Project Links
 
-- 🌐 **GitHub**: [https://github.com/yourusername/writerbuddy-ai](https://github.com/yourusername/writerbuddy-ai)
+- 🌐 **GitHub**: [https://github.com/surajranaofficial/writerbuddy-ai](https://github.com/surajranaofficial/writerbuddy-ai)
 - 🎥 **Demo Video**: [YouTube Link](YOUR_YOUTUBE_LINK)
 - 🏆 **Devpost**: [Competition Entry](https://devpost.com/software/writerbuddy-ai)
 
@@ -514,7 +514,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 🌟 Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=yourusername/writerbuddy-ai&type=Date)](https://star-history.com/#yourusername/writerbuddy-ai&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=surajranaofficial/writerbuddy-ai&type=Date)](https://star-history.com/#surajranaofficial/writerbuddy-ai&Date)
 
 ---
 
@@ -524,6 +524,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 **WriterBuddy AI** | Privacy-First • AI-Powered • Universal
 
-[⭐ Star on GitHub](https://github.com/yourusername/writerbuddy-ai) • [🐛 Report Bug](https://github.com/yourusername/writerbuddy-ai/issues) • [💡 Request Feature](https://github.com/yourusername/writerbuddy-ai/issues)
+[⭐ Star on GitHub](https://github.com/surajranaofficial/writerbuddy-ai) • [🐛 Report Bug](https://github.com/surajranaofficial/writerbuddy-ai/issues) • [💡 Request Feature](https://github.com/surajranaofficial/writerbuddy-ai/issues)
 
 </div>
