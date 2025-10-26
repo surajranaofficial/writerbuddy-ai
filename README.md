@@ -9,17 +9,17 @@
 
 ## 🎥 Demo Video
 
-📹 **[Watch Demo Video on YouTube](YOUR_YOUTUBE_LINK_HERE)**
+📹 **[Watch Demo Video on YouTube](https://youtu.be/ITRuZMWsoec)**
 
 ## 🏆 Built for Chrome Built-in AI Challenge 2025
 
-**Submission Link**: [Google Chrome AI Challenge on Devpost](https://googlechromeai2025.devpost.com/)
+**Devpost Submission**: [WriterBuddy AI on Devpost](https://devpost.com/software/writerbuddy-ai-chrome-built-in-ai-writing-assistant)
 
 ## 🎯 Overview
 
 WriterBuddy AI is an innovative Chrome extension that provides **context-aware writing assistance** across the web using **Chrome's Built-in AI APIs** (Prompt API, Summarizer API, Translator API, Language Detector API, Rewriter API, Proofreader API, Writing Assistance API) with a **hybrid on-device and cloud approach**.
 
-**🎖️ Competition Entry**: [Google Chrome Built-in AI Challenge 2025](https://googlechromeai2025.devpost.com/)
+**🎖️ Devpost Project**: [WriterBuddy AI - Chrome Built-in AI Writing Assistant](https://devpost.com/software/writerbuddy-ai-chrome-built-in-ai-writing-assistant)
 
 ### 🌟 Why WriterBuddy AI?
 
@@ -497,8 +497,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### Project Links
 
 - 🌐 **GitHub**: [https://github.com/surajranaofficial/writerbuddy-ai](https://github.com/surajranaofficial/writerbuddy-ai)
-- 🎥 **Demo Video**: [YouTube Link](YOUR_YOUTUBE_LINK)
-- 🏆 **Devpost**: [Competition Entry](https://devpost.com/software/writerbuddy-ai)
+- 🎥 **Demo Video**: [YouTube](https://youtu.be/ITRuZMWsoec)
+- 🏆 **Devpost**: [WriterBuddy AI Submission](https://devpost.com/software/writerbuddy-ai-chrome-built-in-ai-writing-assistant)
 
 ### Stay Updated
 
