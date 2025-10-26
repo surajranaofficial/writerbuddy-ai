@@ -17,7 +17,7 @@
 
 ## 🎯 Overview
 
-WriterBuddy AI is an innovative Chrome extension that provides **context-aware writing assistance** across the web using **Chrome's Built-in AI APIs** (Prompt API, Summarizer, Translator, Language Detector, Rewriter) with a **hybrid on-device and cloud approach**.
+WriterBuddy AI is an innovative Chrome extension that provides **context-aware writing assistance** across the web using **Chrome's Built-in AI APIs** (Prompt API, Summarizer API, Translator API, Language Detector API, Rewriter API, Proofreader API, Writing Assistance API) with a **hybrid on-device and cloud approach**.
 
 **🎖️ Competition Entry**: [Google Chrome Built-in AI Challenge 2025](https://googlechromeai2025.devpost.com/)
 
@@ -287,11 +287,13 @@ chrome-writebuddy/
 
 | API | Usage | Fallback |
 |-----|-------|----------|
-| Prompt API | Text generation, rewriting | Gemini API |
-| Summarizer API | Content summarization | Gemini API |
-| Translator API (Chrome 138+) | Multi-language translation (100+ languages) | Gemini API (only for Hinglish & Garhwali) |
-| Language Detector API | Auto-detect text language | Built-in only |
-| Rewriter API | Tone changes, improvements | Gemini API |
+| **Prompt API** | Text generation, rewriting, creative writing | Gemini API |
+| **Summarizer API** | Content summarization | Gemini API |
+| **Translator API** (Chrome 138+) | Multi-language translation (100+ languages) | Gemini API (only for Hinglish & Garhwali) |
+| **Language Detector API** | Auto-detect text language | Built-in only |
+| **Rewriter API** | Tone changes, improvements | Gemini API |
+| **Proofreader API** | Grammar and spelling correction | Gemini API |
+| **Writing Assistance API** | Context-aware writing suggestions | Gemini API |
 
 ### 🌐 Translation API - Technical Implementation
 
@@ -470,7 +472,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - 🏆 **Built for**: [Google Chrome Built-in AI Challenge 2025](https://googlechromeai2025.devpost.com/)
-- 🤖 **Powered by**: Chrome Built-in AI APIs (Prompt, Summarizer, Translator, Language Detector, Rewriter)
+- 🤖 **Powered by**: Chrome Built-in AI APIs (Prompt API, Summarizer API, Translator API, Language Detector API, Rewriter API, Proofreader API, Writing Assistance API)
 - ☁️ **Cloud Fallback**: [Google Gemini API](https://ai.google.dev/)
 - 🎨 **Icons**: [Material Design Icons](https://materialdesignicons.com/)
 - 🎭 **UI Framework**: Material Design 3
