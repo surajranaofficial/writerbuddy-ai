@@ -1,0 +1,32 @@
+# System Files
+.DS_Store
+Thumbs.db
+
+# Backup Files
+*_backup*.js
+gemini_backup_17mb.js
+
+# API Keys & Sensitive Data
+config.local.js
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+
+# Node modules (if you add build tools later)
+node_modules/
+dist/
+build/
+
+# Extension packages
+*.crx
+*.pem
+*.zip

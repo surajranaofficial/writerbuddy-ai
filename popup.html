@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WritterBuddy AI - Cyberpunk Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Premium Fonts for Futuristic Design -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="writterbuddy-popup-body">
+    <div class="popup-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-title">
+                <img src="icon.png" alt="Logo" class="brand-logo" />
+                <span>WritterBuddy AI</span>
+            </div>
+            <div class="header-controls">
+                <button id="manage-actions-btn" class="md-button-icon" title="Manage Custom Actions">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 0 24 24" width="16px" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                </button>
+                <button id="settings-btn" class="md-button-icon" title="Settings">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 0 24 24" width="16px" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- View 1: Actions -->
+            <div id="actions-view" class="view">
+                <div class="card">
+                    <textarea id="userInput" placeholder="🚀 Type or paste your text here to unleash the power of AI..."></textarea>
+                </div>
+
+                <div class="card">
+                    <div id="actions-grid-container" class="actions-grid"></div>
+                    <div id="tone-changer-container" class="tone-changer-section"></div>
+                    <div id="custom-actions-container" class="custom-actions-section"></div>
+                </div>
+
+                <div class="card output-card">
+                    <div id="output-container" class="output-container">
+                        <button id="copyBtn" class="md-button-icon copy-button" title="Copy to clipboard" hidden>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                        </button>
+                        <div id="outputPlaceholder">✨ Your AI-generated masterpiece will appear here. Select an action and click Generate to begin the magic!</div>
+                        <div id="outputContent" style="display: none;"></div>
+                        <div id="loadingIndicator" class="spinner-container" style="display: none;">
+                            <div class="spinner"></div>
+                        </div>
+                    </div>
+                </div>
+                 <div id="errorDisplay"></div>
+            </div>
+
+            <!-- View 2: Language Selection -->
+            <div id="language-view" class="view view-hidden">
+                <div class="card">
+                    <div class="view-header">
+                        <button id="back-button" class="md-button-icon" title="Back">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                        </button>
+                        <h2 class="view-title">Select Language</h2>
+                    </div>
+                    <div id="language-list">
+                        <input type="text" id="language-search-input" placeholder="Search language...">
+                        <div id="language-options-container"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View 3: Custom Actions Management -->
+            <div id="custom-actions-view" class="view view-hidden">
+                <div class="card">
+                     <div class="view-header">
+                        <button id="custom-actions-back-button" class="md-button-icon" title="Back">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                        </button>
+                        <h2 class="view-title">Manage Custom Actions</h2>
+                    </div>
+                    <div id="custom-actions-list"></div>
+                    <div class="add-action-form">
+                        <h3 class="card-subheader">🎯 Create New Action</h3>
+                        <input type="text" id="custom-action-name" placeholder="Action Name (e.g., '🔥 Make it Viral', '🤖 Explain Like I'm 5')">
+                        <textarea id="custom-action-prompt" placeholder="Describe what you want the AI to do (e.g., 'Transform this text into an engaging social media post with emojis and trending hashtags...')"></textarea>
+                        <button id="save-custom-action-btn" class="md-button-filled">⚡ Save Action</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View 4: Settings -->
+            <div id="settings-view" class="view view-hidden">
+                <div class="card">
+                    <div class="view-header">
+                        <button id="settings-back-button" class="md-button-icon" title="Back">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                        </button>
+                        <h2 class="view-title">Settings</h2>
+                    </div>
+                    
+                    <!-- Google Login Section -->
+                    <div class="settings-section">
+                        <h3 class="card-subheader">🔐 Account</h3>
+                        <div id="login-section">
+                            <p style="font-size: 12px; color: var(--md-sys-color-on-surface-variant); margin-bottom: 10px;">
+                                Sign in with Google for automatic API key management and sync across devices.
+                            </p>
+                            <button id="google-login-btn" class="md-button-filled" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                                <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                                    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+                                    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+                                    <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+                                    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+                                    <path fill="none" d="M0 0h48v48H0z"></path>
+                                </svg>
+                                <span>Sign in with Google</span>
+                            </button>
+                        </div>
+                        
+                        <div id="user-profile-section" style="display: none;">
+                            <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--md-sys-color-surface-container); border-radius: 12px; margin-bottom: 10px;">
+                                <img id="user-avatar" src="" alt="User" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--md-sys-color-primary);">
+                                <div style="flex: 1;">
+                                    <div id="user-name" style="font-weight: 600; color: var(--md-sys-color-on-surface);"></div>
+                                    <div id="user-email" style="font-size: 12px; color: var(--md-sys-color-on-surface-variant);"></div>
+                                </div>
+                            </div>
+                            <button id="google-logout-btn" class="md-button-outlined" style="width: 100%;">
+                                🚪 Sign Out
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- OR Divider -->
+                    <div style="display: flex; align-items: center; gap: 12px; margin: 20px 0;">
+                        <div style="flex: 1; height: 1px; background: var(--md-sys-color-outline-variant);"></div>
+                        <span style="color: var(--md-sys-color-on-surface-variant); font-size: 13px; font-weight: 500;">OR</span>
+                        <div style="flex: 1; height: 1px; background: var(--md-sys-color-outline-variant);"></div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3 class="card-subheader">🔑 Gemini API Key</h3>
+                        <div id="api-key-auto-section" style="display: none;">
+                            <div style="padding: 12px; background: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); border-radius: 8px; margin-bottom: 10px;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="currentColor">
+                                        <path d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                                    </svg>
+                                    <span style="font-size: 13px; font-weight: 500;">✅ API Key Managed via Google Account</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="api-key-manual-section">
+                            <p style="font-size: 12px; color: var(--md-sys-color-on-surface-variant); margin-bottom: 10px;">
+                                Enter your personal Gemini API key for cloud AI features. 
+                                <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color: var(--md-sys-color-primary);">Get your free API key →</a>
+                            </p>
+                            <div style="display: flex; gap: 8px; align-items: center;">
+                                <input type="password" id="api-key-input" placeholder="Enter your Gemini API key" 
+                                       style="flex: 1; padding: 10px; border: 1px solid var(--md-sys-color-outline); border-radius: 8px; background: var(--md-sys-color-surface-container); color: var(--md-sys-color-on-surface); font-family: 'JetBrains Mono', monospace; font-size: 12px;">
+                                <button id="toggle-api-key-visibility" class="md-button-icon" title="Show/Hide API Key">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="currentColor">
+                                        <path d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button id="save-api-key-btn" class="md-button-filled" style="margin-top: 10px; width: 100%;">
+                                💾 Save API Key
+                            </button>
+                            <div id="api-key-status" style="margin-top: 8px; font-size: 12px; padding: 8px; border-radius: 6px; display: none;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3 class="card-subheader">🤖 AI Model Preference</h3>
+                        <div class="radio-group">
+                            <label><input type="radio" name="ai-model" value="hybrid" checked> <span>Hybrid Mode</span> <small>(Recommended - Best of both worlds)</small></label>
+                            <label><input type="radio" name="ai-model" value="on-device"> <span>On-Device Only</span> <small>(Privacy focused, works offline)</small></label>
+                            <label><input type="radio" name="ai-model" value="cloud"> <span>Cloud Only</span> <small>(Most powerful, requires internet)</small></label>
+                        </div>
+                    </div>
+                     <div class="settings-section">
+                        <h3 class="card-subheader">🎨 Appearance</h3>
+                        <div class="theme-switch-wrapper">
+                             <span>☀️ Light</span>
+                             <label class="theme-switch">
+                                <input type="checkbox" id="theme-toggle">
+                                <span class="slider"></span>
+                            </label>
+                            <span>🌙 Dark</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <button id="generateBtn" class="md-button-filled" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                <span class="button-text">Generate with AI</span>
+                <span class="button-processing-text" style="display: none;">
+                    <div class="processing-spinner"></div>
+                    <span class="processing-icon">🧠</span>
+                    <span class="processing-text">Processing</span>
+                    <span class="processing-dots">
+                        <span class="dot">.</span>
+                        <span class="dot">.</span>
+                        <span class="dot">.</span>
+                    </span>
+                </span>
+                <div class="spinner-container-btn" style="display: none;">
+                    <div class="spinner-btn"></div>
+                </div>
+            </button>
+            <div class="powered-by">Powered by Google Gemini</div>
+        </footer>
+    </div>
+
+    <script src="debug.js"></script>
+    <script src="config.js"></script>
+    <script src="auth.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>
