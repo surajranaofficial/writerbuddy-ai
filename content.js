@@ -1,4 +1,22 @@
 // content.js (Unified Bubble Menu Version - Patched)
+
+// Check if extension context is still valid
+function isExtensionValid() {
+    try {
+        return chrome.runtime && chrome.runtime.id;
+    } catch (e) {
+        return false;
+    }
+}
+
+// Global error handler for extension context
+window.addEventListener('error', (event) => {
+    if (event.message && event.message.includes('Extension context invalidated')) {
+        console.warn('[WriterBuddy] Extension reloaded. Page refresh recommended.');
+        event.preventDefault();
+    }
+});
+
 // Ensure immediate listeners for bubble visibility
 try{document.addEventListener('pointerdown',e=>{const el=(e.target&&e.target.id==='writebuddy-language-search')?null:getClosestEditable(e.target);if(el)showBubbleAndMenu(el);},{capture:true});}catch{}
 
@@ -304,7 +322,7 @@ function getGmailEmailContent(composeView) {
     const emailBodies = document.querySelectorAll('div.a3s.aiL');
 
     if (!emailBodies || emailBodies.length === 0) {
-        Logger.warn("Could not find any email bodies with selector 'div.a3s.aiL' in the document.");
+        Logger.debug("No email thread found (might be composing a new email)");
         return null;
     }
 
@@ -320,7 +338,7 @@ ${body.innerText}
 
     if (!fullThreadText) {
 
-        Logger.warn("Found email body elements, but they were empty or hidden.");
+        Logger.debug("Email body elements found but empty or hidden");
         return null;
     }
 
@@ -451,19 +469,6 @@ function createAiBrushToolbar() {
     return toolbar;
 }
 
-function createResultsPopup() {
-    const popup = document.createElement('div');
-    popup.id = 'writebuddy-results-popup';
-    popup.innerHTML = `
-        <div class="writebuddy-popup-header">
-            <h3>AI Results</h3>
-            <button id="writebuddy-close-popup-btn">&times;</button>
-        </div>
-        <div id="writebuddy-popup-content"></div>
-
-
-    `;
-
 // Determine YouTube Studio field kind for smart menu filtering
 function getYouTubeFieldKind(el) {
     try {
@@ -481,6 +486,19 @@ function getYouTubeFieldKind(el) {
         return null;
     } catch { return null; }
 }
+
+function createResultsPopup() {
+    const popup = document.createElement('div');
+    popup.id = 'writebuddy-results-popup';
+    popup.innerHTML = `
+        <div class="writebuddy-popup-header">
+            <h3>AI Results</h3>
+            <button id="writebuddy-close-popup-btn">&times;</button>
+        </div>
+        <div id="writebuddy-popup-content"></div>
+
+
+    `;
 
     shadowRoot.appendChild(popup);
     popup.querySelector('#writebuddy-close-popup-btn').addEventListener('click', () => {
@@ -844,7 +862,17 @@ async function handleMenuItemClick(event) {
         bubbleIcon.innerHTML = loadingIcon;
         menuContainer.style.visibility = 'hidden';
         chrome.runtime.sendMessage({ type: 'GET_REPLY_INTENTIONS', text: emailContent }, (response) => {
+            if (chrome.runtime.lastError) {
+                bubbleIcon.innerHTML = sparkleIcon;
+                console.error('[WriterBuddy] Extension context error:', chrome.runtime.lastError);
+                alert('Extension reloaded. Please refresh the page to continue.');
+                return;
+            }
             bubbleIcon.innerHTML = sparkleIcon;
+            if (!response) {
+                alert('Extension reloaded. Please refresh the page.');
+                return;
+            }
             if (response.error) {
                 alert(`Could not get AI suggestions: ${response.error}`);
                 return;
@@ -944,6 +972,9 @@ async function handleMenuItemClick(event) {
 
     try {
         const response = await chrome.runtime.sendMessage({ type: action, text: text });
+        if (!response) {
+            throw new Error('Extension reloaded. Please refresh the page.');
+        }
         if (response.error) throw new Error(response.error);
         if (response.data) {
             if (['Generate Titles','Generate Hashtags','Generate Tags','GenerateChapters','CommentReplies','PolicyCheck','ExtractActionItems','ThumbnailText'].includes(action)) {
