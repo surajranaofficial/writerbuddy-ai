@@ -127,7 +127,7 @@ cp .env.example .env
 
 3. **Enable Chrome AI Origin Trial**:
    - Visit [Chrome Origin Trials](https://developer.chrome.com/origintrials/)
-   - Sign up for AI APIs early preview
+   - [Sign up for AI APIs early preview (EPP)](https://developer.chrome.com/docs/ai/join-epp)
    - Add trial token to `manifest.json` (if required)
 
 4. **Load Extension** (see User steps 2-3 above)
